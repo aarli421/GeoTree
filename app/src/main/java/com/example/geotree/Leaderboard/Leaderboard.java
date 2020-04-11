@@ -24,6 +24,10 @@ public class Leaderboard {
 
     }
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
     public void addUser(User u) {
 
     }

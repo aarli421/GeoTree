@@ -11,11 +11,13 @@ import com.example.geotree.MainActivity;
 import com.example.geotree.R;
 import com.example.geotree.User.PlantTreeActivity;
 import com.example.geotree.User.RequestTreeActivity;
+import com.example.geotree.User.User;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,7 +25,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private GoogleMap mMap;
     Button mRequest, mPlant, mLogOut;
-    public static LatLng clickPos;
+    private static LatLng clickPos;
+    public static User user;
+    private Marker selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,10 +92,23 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                if (selected != null) {
+
+                }
+
+                clickPos = latLng;
+                selected = mMap.addMarker(new MarkerOptions().position(latLng).title("Clicked here!"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+            }
+        });
+
+//        // Add a marker in Sydney and move the camera
+//        LatLng sydney = new LatLng(-34, 151);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     public static LatLng getClickPos() {

@@ -66,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            for (User u : Leaderboard.getInstance().getUsers()) {
+                                if (u.equals(mLoginEmail.getText().toString(), mLoginPassword.getText().toString())) {
+                                    MapActivity.user = u;
+                                    break;
+                                }
+                            }
+
                             userIsLoggedIn();
                         } else {
                             mLogin.setText("Login Failed");
@@ -82,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             User u = new User(mSignUpName.getText().toString(), mSignUpEmail.getText().toString(), mSignUpPassword.getText().toString());
                             Leaderboard.getInstance().addUser(u);
+                            MapActivity.user = u;
                             userIsLoggedIn();
                         }
                     }
