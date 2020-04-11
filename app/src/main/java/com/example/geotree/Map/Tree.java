@@ -8,6 +8,11 @@ public class Tree {
     private User planter, requester;
     private LatLng pos;
 
+    public Tree(User requester, LatLng pos) {
+        this.requester = requester;
+        this.pos = pos;
+    }
+
     public Tree(User planter, User requester, LatLng pos) {
         this.planter = planter;
         this.requester = requester;

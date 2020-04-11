@@ -31,4 +31,12 @@ public class User {
     public ArrayList<Tree> getPlanted() {
         return planted;
     }
+
+    public boolean equals(String email, String password) {
+        if (this.email.equals(email) && this.password.equals(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
