@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.geotree.Leaderboard.LeaderboardActivity;
 import com.example.geotree.MainActivity;
 import com.example.geotree.R;
 import com.example.geotree.User.PlantTreeActivity;
@@ -23,8 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    public static LatLng getClickPos;
     private GoogleMap mMap;
-    Button mRequest, mPlant, mLogOut;
+    Button mRequest, mPlant, mLogOut, mLeader;
     private static LatLng clickPos;
     public static User user;
     private Marker selected;
@@ -37,6 +39,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mRequest = findViewById(R.id.request);
         mPlant = findViewById(R.id.plant);
         mLogOut = findViewById(R.id.logout);
+        mLeader = findViewById(R.id.leader);
 
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +56,17 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PlantTreeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
+        mLeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LeaderboardActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
