@@ -38,7 +38,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RequestTreeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
+                return;
             }
         });
 
@@ -46,7 +49,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PlantTreeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
+                return;
             }
         });
 

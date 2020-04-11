@@ -32,6 +32,12 @@
         <activity
             android:name=".Map.MapActivity"
             android:label="@string/title_activity_map"></activity>
+        <activity
+            android:name=".User.RequestTreeActivity"></activity>
+        <activity
+            android:name=".User.PlantTreeActivity"></activity>
+        <activity
+            android:name=".Leaderboard.LeaderboardActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
