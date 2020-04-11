@@ -9,12 +9,10 @@ public class User {
     private ArrayList<Tree> planted;
     private static ArrayList<Tree> toPlant, totalPlanted;
 
-    public User() {
-
-    }
-
     public User(String name, String email, String password) {
-
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public void addPlanted(Tree t) {
@@ -22,8 +20,8 @@ public class User {
         totalPlanted.add(t);
     }
 
-    public static void addToPlant() {
-
+    public static void addToPlant(Tree t) {
+        toPlant.add(t);
     }
 
     public String getName() {

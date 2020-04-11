@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "155195091881",
+    "firebase_url": "https://geotree-982e6.firebaseio.com",
+    "project_id": "geotree-982e6",
+    "storage_bucket": "geotree-982e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155195091881:android:07a27e14f757fb174232b8",
+        "android_client_info": {
+          "package_name": "com.example.geotree"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155195091881-ertov3q84p8umaklc3n8g58pk68l2lpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeUSZtckgVnDbD-TrndwfE4hTdI5TUWLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "155195091881-ertov3q84p8umaklc3n8g58pk68l2lpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

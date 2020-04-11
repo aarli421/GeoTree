@@ -9,6 +9,7 @@ import com.example.geotree.R;
 public class PlantTreeActivity extends AppCompatActivity {
 
     // Select a tree on map and plant
+    //my assignment (Yung$ushi)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
