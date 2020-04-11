@@ -1,7 +1,7 @@
 package com.example.geotree.Map;
 
 import com.google.android.gms.maps.model.LatLng;
-
+//mein
 public class Station {
     private int stock;
     private LatLng pos;
