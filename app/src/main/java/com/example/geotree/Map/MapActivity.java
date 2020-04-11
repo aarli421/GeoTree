@@ -23,7 +23,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private GoogleMap mMap;
     Button mRequest, mPlant, mLogOut;
-    LatLng clickPos;
+    public static LatLng clickPos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,5 +86,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    public static LatLng getClickPos() {
+        return clickPos;
     }
 }
