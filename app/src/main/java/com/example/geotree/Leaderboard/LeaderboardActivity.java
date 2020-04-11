@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.geotree.R;
 
 public class LeaderboardActivity extends AppCompatActivity {
-    protected TextView mDisplayInfo;
+    private TextView mDisplayInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         mDisplayInfo = (TextView) findViewById(R.id.textView2);
-
+        
 
 
     }

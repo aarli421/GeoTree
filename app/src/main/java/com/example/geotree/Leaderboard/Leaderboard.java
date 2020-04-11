@@ -24,6 +24,15 @@ public class Leaderboard extends LeaderboardActivity{
 
 
     public void getTop(int i) {
+        Collections.sort(users, new Comparator<User>() {
+            @Override
+            public int compare(User u1, User u2) {
+                return u1.getPlanted().size() - u2.getPlanted().size();
+            }
+        });
+        for(int j = 0; j < i; j++){
+          //  mDisplayInfo.setText(users.get(j));
+        }
     }
 
     public void addUser(User u) {
