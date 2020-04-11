@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.geotree.Map.MapActivity;
 import com.example.geotree.Map.Tree;
+import com.example.geotree.Map.Tree.*;
 import com.example.geotree.R;
 import com.google.android.gms.maps.model.LatLng;
 import com.example.geotree.Map.MapActivity;
@@ -43,7 +44,7 @@ public class PlantTreeActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plantRequest();
+                // plantTree(); //need to know what tree is at certain position.
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
@@ -55,7 +56,8 @@ public class PlantTreeActivity extends AppCompatActivity {
 
     }
 
-    public void plantRequest() {
-        Tree created = new Tree (null, user, MapActivity.getClickPos);
+    public void plantTree(Tree a) {
+        a.setPlanter(user);
+        a.setIsPlantedTrue();
     }
 }
