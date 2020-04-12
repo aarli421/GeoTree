@@ -85,7 +85,7 @@
         android:text="Buy 50 credits \n  \n $75" />
 
     <Button
-        android:id="@+id/buy_credit10"
+        android:id="@+id/buy_credit100"
         android:layout_width="wrap_content"
         android:layout_height="108dp"
         android:layout_alignParentStart="true"
