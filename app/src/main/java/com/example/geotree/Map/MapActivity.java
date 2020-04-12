@@ -59,7 +59,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         mDesc.setText("Selected nothing"
                 + "\n Your Trees Planted: " + user.getPlanted().size()
-                + "\n Your Trees Requested: " + user.getRequested().size());
+                + "\n Your Trees Requested: " + user.getRequested().size()
+                + "\n Your Account " + user.getBalance() );
 
         BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(R.drawable.station);
         Bitmap b = bitmap.getBitmap();
@@ -200,7 +201,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                 mDesc.setText("Selected a location"// + latLng.latitude + "Long - " + latLng.longitude
                         + "\n Your Trees Planted: " + user.getPlanted().size()
-                        + "\n Your Trees Requested: " + user.getRequested().size());
+                        + "\n Your Trees Requested: " + user.getRequested().size()
+                        + "\n Your Account " + user.getBalance() );
                 //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             }
         });
@@ -224,7 +226,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                             mDesc.setText("Selected nothing"
                                     + "\n Your Trees Planted: " + user.getPlanted().size()
-                                    + "\n Your Trees Requested: " + user.getRequested().size());
+                                    + "\n Your Trees Requested: " + user.getRequested().size()
+                                    + "\n Your Account " + user.getBalance() );
                         } else {
                             selectedMarker = true;
                         }
@@ -237,7 +240,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     if (tr != null) {
                         mDesc.setText("Selected a tree requested by " + tr.getRequester().getName()
                                 + "\n Your Trees Planted: " + user.getPlanted().size()
-                                + "\n Your Trees Requested: " + user.getRequested().size());
+                                + "\n Your Trees Requested: " + user.getRequested().size()
+                                + "\n Your Account " + user.getBalance() );
                     }
 
                     return true;
@@ -245,7 +249,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     if (tr != null) {
                         mDesc.setText("Selected a tree planted by " + tr.getPlanter().getName()
                                 + "\n Your Trees Planted: " + user.getPlanted().size()
-                                + "\n Your Trees Requested: " + user.getRequested().size());
+                                + "\n Your Trees Requested: " + user.getRequested().size()
+                                + "\n Your Account " + user.getBalance() );
                     }
                     return false;
                 }
