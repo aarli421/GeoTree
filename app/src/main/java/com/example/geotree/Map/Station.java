@@ -11,15 +11,15 @@ public class Station {
         this.pos = pos;
     }
 
-    public void closestStation() {
-
+    public void removeTree(int trees) {
+        stock -= trees;
     }
 
-    public void removeTree() {
-
+    public void addTree(int trees) {
+        stock += trees;
     }
 
-    public void addTree() {
-
+    public LatLng getPos() {
+        return pos;
     }
 }

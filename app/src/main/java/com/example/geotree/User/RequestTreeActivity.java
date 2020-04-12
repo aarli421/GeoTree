@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.geotree.MainActivity;
 import com.example.geotree.Map.MapActivity;
 import com.example.geotree.Map.Tree;
 import com.example.geotree.R;
@@ -17,8 +18,7 @@ import static com.example.geotree.Map.MapActivity.user;
 
 public class RequestTreeActivity extends AppCompatActivity {
 
-        private Button goBack;
-        private Button submit;
+    private Button goBack, submit;
 
     // Select a point and call plantTree()
     //my assignment (Yung$ushi)
@@ -33,29 +33,28 @@ public class RequestTreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
                 return;
             }
-        });;
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 plantRequest();
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
                 return;
             }
-        });;
-
-
+        });
     }
 
     public void plantRequest() {
-        Tree created = new Tree (null, user, MapActivity.getClickPos);
+        Tree created = new Tree (null, user, MapActivity.getClickPos());
+        user.addRequested(created);
     }
 }
