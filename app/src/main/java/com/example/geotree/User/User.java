@@ -8,7 +8,7 @@ public class User {
     private String name, email, password;
     private ArrayList<Tree> requested, planted;
     private static ArrayList<Tree> toPlant = new ArrayList<>(), totalPlanted = new ArrayList<>();
-    private double balance;
+    private int balance;
 
     public User(String name, String email, String password) {
         this.name = name;
@@ -17,6 +17,8 @@ public class User {
 
         requested = new ArrayList<>();
         planted = new ArrayList<>();
+
+        balance = 0;
     }
 
     public void addPlanted(Tree t) {
@@ -51,12 +53,20 @@ public class User {
         return totalPlanted;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void addBalance(){
-        balance += 0.5;
+    public void plantTree(){
+        balance += 5;
+    }
+
+    public void requestTree() {
+        balance -= 10;
+    }
+
+    public void buy(int bought) {
+        balance += bought;
     }
 
     public boolean equals(String email, String password) {

@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logInWithEmailAuthCredential() {
+        if (mLoginEmail.getText().toString() == null || mLoginPassword.getText().toString() == null) return;
+
         mAuth.signInWithEmailAndPassword(mLoginEmail.getText().toString(), mLoginPassword.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -75,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signUpWithEmailAuthCredential() {
+        if (mSignUpName.getText().toString() == null || mSignUpEmail.getText().toString() == null || mSignUpPassword.getText().toString() == null) return;
+
         mAuth.createUserWithEmailAndPassword(mSignUpEmail.getText().toString(), mSignUpPassword.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

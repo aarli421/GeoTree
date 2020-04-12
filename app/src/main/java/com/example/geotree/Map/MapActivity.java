@@ -218,20 +218,21 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 }
 
                 if (requestedTreesIds.contains(marker.getId())) {
+
+                    selectedAnything = false;
+
+                    if (marker.equals(selected)) {
+                        selectedMarker = false;
+
+                        mDesc.setText("Selected nothing"
+                                + "\n Your Trees Planted: " + user.getPlanted().size()
+                                + "\n Your Trees Requested: " + user.getRequested().size()
+                                + "\n Your Account " + user.getBalance() );
+                    } else {
+                        selectedMarker = true;
+                    }
+
                     if (selected != null) {
-                        selectedAnything = false;
-
-                        if (marker.equals(selected)) {
-                            selectedMarker = false;
-
-                            mDesc.setText("Selected nothing"
-                                    + "\n Your Trees Planted: " + user.getPlanted().size()
-                                    + "\n Your Trees Requested: " + user.getRequested().size()
-                                    + "\n Your Account " + user.getBalance() );
-                        } else {
-                            selectedMarker = true;
-                        }
-
                         selected.remove();
                     }
 
