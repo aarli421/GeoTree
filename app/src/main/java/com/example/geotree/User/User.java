@@ -55,6 +55,10 @@ public class User {
         return balance;
     }
 
+    public void addBalance(){
+        balance += 0.5;
+    }
+
     public boolean equals(String email, String password) {
         if (this.email.equals(email)) {
             return true;
