@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
 
-        userIsLoggedIn();
+        //userIsLoggedIn();
 
         mLoginEmail = findViewById(R.id.loginEmail);
         mLoginPassword = findViewById(R.id.loginPassword);
@@ -66,13 +66,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            for (User u : Leaderboard.getInstance().getUsers()) {
-                                if (u.equals(mLoginEmail.getText().toString(), mLoginPassword.getText().toString())) {
-                                    MapActivity.user = u;
-                                    break;
-                                }
-                            }
-
                             userIsLoggedIn();
                         } else {
                             mLogin.setText("Login Failed");
@@ -99,6 +92,14 @@ public class MainActivity extends AppCompatActivity {
     private void userIsLoggedIn() {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
+
+            for (User u : Leaderboard.getInstance().getUsers()) {
+                if (u.equals(mLoginEmail.getText().toString())) {
+                    MapActivity.user = u;
+                    break;
+                }
+            }
+
             startActivity(new Intent(getApplicationContext(), MapActivity.class));
             finish();
             return;
