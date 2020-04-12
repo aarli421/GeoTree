@@ -27,7 +27,7 @@ public class PlantTreeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request_tree);
+        setContentView(R.layout.activity_plant_tree);
         goBack = findViewById(R.id.back_to_map);
         submit = findViewById(R.id.submit_request);
         goBack.setOnClickListener(new View.OnClickListener() {
@@ -66,5 +66,6 @@ public class PlantTreeActivity extends AppCompatActivity {
         t.setPlanter(user);
         t.setIsPlantedTrue();
         user.addPlanted(t);
+
     }
 }
