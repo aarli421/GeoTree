@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import com.example.geotree.R;
 import com.example.geotree.User.PlantTreeActivity;
 import com.example.geotree.User.RequestTreeActivity;
 import com.example.geotree.User.User;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -25,9 +26,16 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -44,6 +52,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private static ArrayList<Station> stations = new ArrayList<>();
     public static ArrayList<String> requestedTreesIds = new ArrayList<>();
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +143,31 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 startActivity(intent);
                 finish();
                 return;
+            }
+        });
+
+//        Places.initialize(getApplicationContext(), "AIzaSyCghiObJW7kYwAGkgIpTmtAsD07kGqHqv4");
+//        PlacesClient placesClient = Places.createClient(this);
+
+        if (!Places.isInitialized()) {
+            Places.initialize(getApplicationContext(), "AIzaSyCghiObJW7kYwAGkgIpTmtAsD07kGqHqv4", Locale.US);
+        }
+
+        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+
+        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                Log.i(TAG, "An error occurred: " + status);
             }
         });
 
