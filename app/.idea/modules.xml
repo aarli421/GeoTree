@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../GeoTree.iml" filepath="$PROJECT_DIR$/../GeoTree.iml" group="GeoTree" />
+      <module fileurl="file://$PROJECT_DIR$/GeoTree-app.iml" filepath="$PROJECT_DIR$/GeoTree-app.iml" group="GeoTree/app" />
+      <module fileurl="file://$PROJECT_DIR$/../TitanHacks-GeoTree.iml" filepath="$PROJECT_DIR$/../TitanHacks-GeoTree.iml" group="GeoTree" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="GeoTree/app" />
     </modules>
   </component>
