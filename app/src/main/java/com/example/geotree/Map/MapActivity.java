@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.geotree.Leaderboard.LeaderboardActivity;
 import com.example.geotree.MainActivity;
@@ -31,7 +32,8 @@ import java.util.ArrayList;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    Button mRequest, mPlant, mLogOut, mLeader;
+    private Button mRequest, mPlant, mLogOut, mLeader;
+    private TextView mDesc;
     private static LatLng clickPos;
     public static User user;
     private Marker selected;
@@ -53,6 +55,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mLogOut = findViewById(R.id.logout);
         mLeader = findViewById(R.id.leader);
 
+        mDesc = findViewById(R.id.desc);
+
+        mDesc.setText("Selected nothing"
+                + "\n Your Trees Planted: " + user.getPlanted().size()
+                + "\n Your Trees Requested: " + user.getRequested().size());
+
         BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(R.drawable.station);
         Bitmap b = bitmap.getBitmap();
         station = Bitmap.createScaledBitmap(b, bitmapWidth, bitmapHeight, false);
@@ -63,7 +71,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         bitmap = (BitmapDrawable) getResources().getDrawable(R.drawable.sapling);
         b = bitmap.getBitmap();
-        sapling = Bitmap.createScaledBitmap(b, bitmapWidth, bitmapHeight, false);
+        sapling = Bitmap.createScaledBitmap(b, bitmapWidth/2, bitmapHeight/2, false);
+
+        stations.add(new Station(2, new LatLng(23, -109)));
+        stations.add(new Station(4, new LatLng(41, -119)));
 
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,6 +197,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                 selectedAnything = true;
 
                 selected = mMap.addMarker(new MarkerOptions().position(latLng).title("Clicked here!"));
+
+                mDesc.setText("Selected a location"// + latLng.latitude + "Long - " + latLng.longitude
+                        + "\n Your Trees Planted: " + user.getPlanted().size()
+                        + "\n Your Trees Requested: " + user.getRequested().size());
                 //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             }
         });
@@ -193,12 +208,23 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
+                Tree tr = null;
+                for (Tree t : User.getToPlant()) {
+                    if (t.getPos().equals(MapActivity.getClickPos())) {
+                        tr = t;
+                    }
+                }
+
                 if (requestedTreesIds.contains(marker.getId())) {
                     if (selected != null) {
                         selectedAnything = false;
 
                         if (marker.equals(selected)) {
                             selectedMarker = false;
+
+                            mDesc.setText("Selected nothing"
+                                    + "\n Your Trees Planted: " + user.getPlanted().size()
+                                    + "\n Your Trees Requested: " + user.getRequested().size());
                         } else {
                             selectedMarker = true;
                         }
@@ -207,8 +233,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     }
 
                     clickPos = marker.getPosition();
+
+                    if (tr != null) {
+                        mDesc.setText("Selected a tree requested by " + tr.getRequester().getName()
+                                + "\n Your Trees Planted: " + user.getPlanted().size()
+                                + "\n Your Trees Requested: " + user.getRequested().size());
+                    }
+
                     return true;
                 } else {
+                    if (tr != null) {
+                        mDesc.setText("Selected a tree planted by " + tr.getPlanter().getName()
+                                + "\n Your Trees Planted: " + user.getPlanted().size()
+                                + "\n Your Trees Requested: " + user.getRequested().size());
+                    }
                     return false;
                 }
             }

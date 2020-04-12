@@ -105,7 +105,8 @@
         android:layout_marginRight="6dp"
         android:layout_marginBottom="5dp"
         android:background="#359c5e"
-        android:text="Nothing selected \n Your Trees Planted: \n Your Trees Requested: "
+        android:padding="8dp"
+        android:text="Selected nothing \n Your Trees Planted: \n Your Trees Requested: "
         android:textColor="#ffffff" />
 
 </RelativeLayout>
