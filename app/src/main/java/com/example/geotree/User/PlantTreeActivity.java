@@ -39,25 +39,32 @@ public class PlantTreeActivity extends AppCompatActivity {
                 finish();
                 return;
             }
-        });;
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // plantTree(); //need to know what tree is at certain position.
+                Tree tree;
+                for (Tree t : User.getToPlant()) {
+                    if (t.getPos().equals(MapActivity.getClickPos())) {
+                        tree = t;
+                        plantTree(tree);
+                    }
+                }
+
+                //need to know what tree is at certain position.
                 Intent intent = new Intent(getApplicationContext(), MapActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
                 return;
             }
-        });;
-
-
+        });
     }
 
-    public void plantTree(Tree a) {
-        a.setPlanter(user);
-        a.setIsPlantedTrue();
+    public void plantTree(Tree t) {
+        t.setPlanter(user);
+        t.setIsPlantedTrue();
+        user.addPlanted(t);
     }
 }
