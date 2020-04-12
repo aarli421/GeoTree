@@ -73,8 +73,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         b = bitmap.getBitmap();
         sapling = Bitmap.createScaledBitmap(b, bitmapWidth/2, bitmapHeight/2, false);
 
-        stations.add(new Station(2, new LatLng(23, -109)));
-        stations.add(new Station(4, new LatLng(41, -119)));
+//        stations.add(new Station(2, new LatLng(23, -109)));
+//        stations.add(new Station(4, new LatLng(41, -119)));
 
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
