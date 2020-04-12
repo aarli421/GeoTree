@@ -33,7 +33,7 @@ public class Leaderboard{
             @Override
             public int compare(User u1, User u2) {
                 System.out.println(u1.getPlanted().size() - u2.getPlanted().size());
-                return u1.getPlanted().size() - u2.getPlanted().size();
+                return u2.getPlanted().size() - u1.getPlanted().size();
             }
         });
         String str = "";
@@ -45,6 +45,7 @@ public class Leaderboard{
             trees += u.getPlanted().size() + "\n";
             str += index + ". " + u.getName() + "\n";
         }
+        System.out.println(users);
         LeaderboardActivity.getTrees().setText(trees);
         LeaderboardActivity.getInfo().setText(str);
     }
