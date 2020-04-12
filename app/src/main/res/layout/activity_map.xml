@@ -16,7 +16,9 @@
         android:layout_marginStart="-5dp"
         android:layout_marginTop="-15dp"
         android:layout_marginBottom="0dp"
-        tools:context=".Map.MapActivity" />
+        tools:context=".Map.MapActivity"
+        android:layout_marginLeft="-5dp"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/request"
