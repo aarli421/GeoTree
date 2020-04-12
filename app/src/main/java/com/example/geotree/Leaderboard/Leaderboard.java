@@ -36,11 +36,11 @@ public class Leaderboard{
                 return u2.getPlanted().size() - u1.getPlanted().size();
             }
         });
-        String str = "";
-        String trees = "";
+
+        String str = "", trees = "";
         int index = 0;
         for (User u : users) {
-            if (index >= i)break;
+            if (index >= i) break;
             index++;
             trees += u.getPlanted().size() + "\n";
             str += index + ". " + u.getName() + "\n";

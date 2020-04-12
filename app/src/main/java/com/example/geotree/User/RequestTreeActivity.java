@@ -56,5 +56,6 @@ public class RequestTreeActivity extends AppCompatActivity {
     public void plantRequest() {
         Tree created = new Tree (null, user, MapActivity.getClickPos());
         user.addRequested(created);
+        user.requestTree();
     }
 }

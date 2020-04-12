@@ -45,7 +45,9 @@ public class PlantTreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Tree tree;
-                for (Tree t : User.getToPlant()) {
+                for (int i = 0; i < User.getToPlant().size(); i++) {
+                    Tree t = User.getToPlant().get(i);
+
                     if (t.getPos().equals(MapActivity.getClickPos())) {
                         tree = t;
                         plantTree(tree);
@@ -66,6 +68,6 @@ public class PlantTreeActivity extends AppCompatActivity {
         t.setPlanter(user);
         t.setIsPlantedTrue();
         user.addPlanted(t);
-
+        user.plantTree();
     }
 }
