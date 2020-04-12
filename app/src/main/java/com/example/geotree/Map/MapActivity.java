@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.geotree.Leaderboard.LeaderboardActivity;
 import com.example.geotree.MainActivity;
 import com.example.geotree.R;
+import com.example.geotree.Shop.ShopActivity;
 import com.example.geotree.User.PlantTreeActivity;
 import com.example.geotree.User.RequestTreeActivity;
 import com.example.geotree.User.User;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button mRequest, mPlant, mLogOut, mLeader;
+    private Button mRequest, mPlant, mLogOut, mLeader, mShop;
     private TextView mDesc;
     private static LatLng clickPos;
     public static User user;
@@ -54,6 +55,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mPlant = findViewById(R.id.plant);
         mLogOut = findViewById(R.id.logout);
         mLeader = findViewById(R.id.leader);
+        mShop = findViewById(R.id.shop_button);
 
         mDesc = findViewById(R.id.desc);
 
@@ -90,6 +92,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     return;
                 }
             }
+        });
+
+        mShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    Intent intent;
+                    intent = new Intent(getApplicationContext(), ShopActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+
         });
 
         mPlant.setOnClickListener(new View.OnClickListener() {
