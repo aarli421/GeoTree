@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.geotree.Leaderboard.LeaderboardActivity;
 import com.example.geotree.MainActivity;
 import com.example.geotree.R;
+import com.example.geotree.Shop.ShopActivity;
 import com.example.geotree.User.PlantTreeActivity;
 import com.example.geotree.User.RequestTreeActivity;
 import com.example.geotree.User.User;
@@ -40,7 +41,7 @@ import java.util.Locale;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button mRequest, mPlant, mLogOut, mLeader;
+    private Button mRequest, mPlant, mLogOut, mLeader, mShop;
     private TextView mDesc;
     private static LatLng clickPos;
     public static User user;
@@ -64,6 +65,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mPlant = findViewById(R.id.plant);
         mLogOut = findViewById(R.id.logout);
         mLeader = findViewById(R.id.leader);
+        mShop = findViewById(R.id.shop_button);
 
         mDesc = findViewById(R.id.desc);
 
@@ -100,6 +102,20 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     return;
                 }
             }
+        });
+
+        mShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    Intent intent;
+                    intent = new Intent(getApplicationContext(), ShopActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+
         });
 
         mPlant.setOnClickListener(new View.OnClickListener() {
@@ -153,23 +169,23 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Places.initialize(getApplicationContext(), "AIzaSyCghiObJW7kYwAGkgIpTmtAsD07kGqHqv4", Locale.US);
         }
 
-        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
-                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
-
-        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
-        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                // TODO: Get info about the selected place.
-                Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
-            }
-
-            @Override
-            public void onError(Status status) {
-                // TODO: Handle the error.
-                Log.i(TAG, "An error occurred: " + status);
-            }
-        });
+//        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+//                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+//
+//        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+//        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+//            @Override
+//            public void onPlaceSelected(Place place) {
+//                // TODO: Get info about the selected place.
+//                Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
+//            }
+//
+//            @Override
+//            public void onError(Status status) {
+//                // TODO: Handle the error.
+//                Log.i(TAG, "An error occurred: " + status);
+//            }
+//        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

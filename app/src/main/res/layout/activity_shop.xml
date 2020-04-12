@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/description2"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="168dp"
+        android:gravity="center"
+        android:text="Buy Credits"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <Button
+        android:id="@+id/back_to_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="back"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#ffffff"
+        android:background="#359c5e"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:text="Shop"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#ffffff"
+        android:background="#359c5e"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <Button
+        android:id="@+id/buy_credit10"
+        android:layout_width="135dp"
+        android:layout_height="115dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="39dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="247dp"
+        android:background="#359c5e"
+        android:text="Buy 10 credits \n  \n $15"
+        android:textColor="#ffffff"
+
+        tools:ignore="DuplicateIds" />
+
+
+    <Button
+        android:id="@+id/buy_credit20"
+        android:layout_width="142dp"
+        android:layout_height="117dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="246dp"
+        android:textColor="#ffffff"
+        android:background="#359c5e"
+        android:text="Buy 20 credits \n  \n $30" />
+
+    <Button
+        android:id="@+id/buy_credit50"
+        android:layout_width="136dp"
+        android:layout_height="110dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="439dp"
+        android:background="#359c5e"
+        android:text="Buy 50 credits \n  \n $75"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/buy_credit100"
+        android:layout_width="143dp"
+        android:layout_height="111dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="229dp"
+        android:layout_marginLeft="229dp"
+        android:layout_marginTop="438dp"
+        android:background="#359c5e"
+        android:text="Buy 100 credits \n  \n $150"
+        android:textColor="#ffffff"
+        tools:ignore="DuplicateIds" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="110dp"
+        android:layout_height="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="199dp"
+        android:background="#000000" />
+
+
+</RelativeLayout>

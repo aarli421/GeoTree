@@ -35,6 +35,8 @@
         <activity
             android:name=".User.RequestTreeActivity"></activity>
         <activity
+            android:name=".Shop.ShopActivity"></activity>
+        <activity
             android:name=".User.PlantTreeActivity"></activity>
         <activity
             android:name=".Leaderboard.LeaderboardActivity"></activity>
