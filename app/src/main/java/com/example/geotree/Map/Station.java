@@ -22,4 +22,8 @@ public class Station {
     public LatLng getPos() {
         return pos;
     }
+
+    public int getStock() {
+        return stock;
+    }
 }

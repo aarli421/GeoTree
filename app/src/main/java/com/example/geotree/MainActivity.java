@@ -1,3 +1,5 @@
+// TitanHacks 2020 Aaron Li, Larry Zhi, Andrew Zheng, Brandon Liu
+
 package com.example.geotree;
 
 import androidx.annotation.NonNull;

@@ -43,12 +43,17 @@ public class RequestTreeActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plantRequest();
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-                return;
+                if (user.getBalance() >= 10) {
+                    plantRequest();
+                    Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                    return;
+                } else {
+                    submit.setText("You need more money!");
+                    return;
+                }
             }
         });
     }

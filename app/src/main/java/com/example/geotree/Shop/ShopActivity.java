@@ -13,13 +13,7 @@ import com.example.geotree.R;
 import static com.example.geotree.Map.MapActivity.user;
 
 public class ShopActivity extends AppCompatActivity {
-    private Button ten;
-    private Button twenty;
-    private Button fifty;
-    private Button hundred;
-    private Button goBack;
-
-
+    private Button ten, twenty, fifty, hundred, goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +21,10 @@ public class ShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop);
 
         goBack = findViewById(R.id.back_to_map);
-        ten = findViewById(R.id.buy_credit10);
-        twenty = findViewById(R.id.buy_credit20);
-        fifty = findViewById(R.id.buy_credit50);
-        hundred = findViewById(R.id.buy_credit100);
-
-
-
+        ten = findViewById(R.id.buy_credit100);
+        twenty = findViewById(R.id.buy_credit200);
+        fifty = findViewById(R.id.buy_credit500);
+        hundred = findViewById(R.id.buy_credit1000);
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,14 +40,14 @@ public class ShopActivity extends AppCompatActivity {
         ten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.buy(10) ;
+                user.buy(100) ;
             }
         });
 
         twenty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.buy(20) ;
+                user.buy(200) ;
             }
         });
 
@@ -64,7 +55,7 @@ public class ShopActivity extends AppCompatActivity {
         fifty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.buy(50) ;
+                user.buy(500) ;
             }
         });
 
@@ -72,12 +63,8 @@ public class ShopActivity extends AppCompatActivity {
         hundred.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.buy(100) ;
+                user.buy(1000) ;
             }
         });
-
-
-
-
     }
 }

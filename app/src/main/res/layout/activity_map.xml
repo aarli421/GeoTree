@@ -20,12 +20,12 @@
         android:layout_marginLeft="-5dp"
         android:layout_alignParentLeft="true" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/autocomplete_fragment"-->
-<!--        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="300dp" />-->
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 
     <Button
         android:id="@+id/shop_button"

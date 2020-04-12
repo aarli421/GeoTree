@@ -69,7 +69,7 @@ public class User {
         balance += bought;
     }
 
-    public boolean equals(String email, String password) {
+    public boolean equals(String email) {
         if (this.email.equals(email)) {
             return true;
         } else {

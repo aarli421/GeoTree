@@ -86,8 +86,38 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         b = bitmap.getBitmap();
         sapling = Bitmap.createScaledBitmap(b, bitmapWidth/2, bitmapHeight/2, false);
 
-//        stations.add(new Station(2, new LatLng(23, -109)));
-//        stations.add(new Station(4, new LatLng(41, -119)));
+        stations.add(new Station(23, new LatLng(23, -109)));
+        stations.add(new Station(42, new LatLng(41, -119)));
+        stations.add(new Station(63, new LatLng(52.5, 13.4)));
+        stations.add(new Station(60, new LatLng(55.8, 37.6)));
+        stations.add(new Station(53, new LatLng(48.9, 2.4)));
+        stations.add(new Station(50, new LatLng(37.8, 122.4)));
+        stations.add(new Station(20, new LatLng(41.9, 12.5)));
+        stations.add(new Station(37, new LatLng(34.1, 118.2)));
+        stations.add(new Station(100, new LatLng(47.5, 19.0)));
+        stations.add(new Station(3, new LatLng(49.3, 123.1)));
+        stations.add(new Station(102, new LatLng(37.5, 122.0)));
+        stations.add(new Station(120, new LatLng(37.98, 23.73 )));
+        stations.add(new Station(214, new LatLng(0.3, 32.6)));
+        stations.add(new Station(43, new LatLng(46.1, 18.2)));
+        stations.add(new Station(500, new LatLng(32.89, 13.19)));
+        stations.add(new Station(69, new LatLng(26.8, 30.8)));
+        stations.add(new Station(72, new LatLng(48.9, 2.4)));
+        stations.add(new Station(72, new LatLng(48.9, 2.4)));
+        stations.add(new Station(16, new LatLng(28.6139, 77.2090)));
+        stations.add(new Station(6, new LatLng(25.2, 55.3)));
+        stations.add(new Station(64, new LatLng(-45.0312, 168.6626)));
+        stations.add(new Station(82, new LatLng(34.1, -118.2)));
+        stations.add(new Station(58, new LatLng(58.3, -134.41)));
+        stations.add(new Station(9, new LatLng(49.3, -123.1)));
+        stations.add(new Station(100, new LatLng(-79.687184,40.553454)));
+        stations.add(new Station(100, new LatLng(-10.211121,-66.955774)));
+        stations.add(new Station(54, new LatLng(-39.422615,-69.312091)));
+        stations.add(new Station(101, new LatLng(-32.546813,-62.387409)));
+        stations.add(new Station(59, new LatLng(35.600146,-582.024485)));
+        stations.add(new Station(61, new LatLng(47.052160,-434.263379)));
+        stations.add(new Station(73, new LatLng(-34.307144,-573.452746)));
+        stations.add(new Station(92, new LatLng(9.830322,-710.740231)));
 
         mRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,23 +199,23 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             Places.initialize(getApplicationContext(), "AIzaSyCghiObJW7kYwAGkgIpTmtAsD07kGqHqv4", Locale.US);
         }
 
-//        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
-//                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
-//
-//        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
-//        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-//            @Override
-//            public void onPlaceSelected(Place place) {
-//                // TODO: Get info about the selected place.
-//                Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
-//            }
-//
-//            @Override
-//            public void onError(Status status) {
-//                // TODO: Handle the error.
-//                Log.i(TAG, "An error occurred: " + status);
-//            }
-//        });
+        AutocompleteSupportFragment autocompleteFragment = (AutocompleteSupportFragment)
+                getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+
+        autocompleteFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME));
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                Log.i(TAG, "Place: " + place.getName() + ", " + place.getId());
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+                Log.i(TAG, "An error occurred: " + status);
+            }
+        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -235,7 +265,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         for (Station s : stations) {
             LatLng stationPos = s.getPos();
-            mMap.addMarker(new MarkerOptions().position(stationPos).title("Station").icon(BitmapDescriptorFactory.fromBitmap(station)));
+            mMap.addMarker(new MarkerOptions().position(stationPos).title("Current Stock: " + s.getStock()).icon(BitmapDescriptorFactory.fromBitmap(station)));
         }
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
@@ -299,10 +329,12 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
                     return true;
                 } else {
                     if (tr != null) {
-                        mDesc.setText("Selected a tree planted by " + tr.getPlanter().getName()
-                                + "\n Your Trees Planted: " + user.getPlanted().size()
-                                + "\n Your Trees Requested: " + user.getRequested().size()
-                                + "\n Your Account " + user.getBalance() );
+                        if (tr.getPlanter() != null) {
+                            mDesc.setText("Selected a tree planted by " + tr.getPlanter().getName()
+                                    + "\n Your Trees Planted: " + user.getPlanted().size()
+                                    + "\n Your Trees Requested: " + user.getRequested().size()
+                                    + "\n Your Account " + user.getBalance());
+                        }
                     }
                     return false;
                 }

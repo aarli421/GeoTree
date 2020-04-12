@@ -19,18 +19,17 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class LeaderboardActivity extends AppCompatActivity {
-    private static TextView mDisplayName;
-    private static TextView plantedTrees;
+    private static TextView mDisplayName, plantedTrees;
     private static Button mBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-        mDisplayName = (TextView) findViewById(R.id.leaderb);
-        plantedTrees = (TextView) findViewById(R.id.treesPlanted);
-        mBack = (Button) findViewById(R.id.back);
-        Leaderboard.getInstance().addUser(new User("Larry Zhi", "larryzhi@gmail.com", "larryzhi"));
-        Leaderboard.getInstance().getTop(2);
+        mDisplayName = findViewById(R.id.leaderb);
+        plantedTrees = findViewById(R.id.treesPlanted);
+        mBack = findViewById(R.id.back);
+        //Leaderboard.getInstance().addUser(new User("Larry Zhi", "larryzhi@gmail.com", "larryzhi"));
+        Leaderboard.getInstance().getTop(5);
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override

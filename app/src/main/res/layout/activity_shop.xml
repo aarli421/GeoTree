@@ -54,7 +54,7 @@
         tools:layout_editor_absoluteY="260dp" />
 
     <Button
-        android:id="@+id/buy_credit10"
+        android:id="@+id/buy_credit100"
         android:layout_width="135dp"
         android:layout_height="115dp"
         android:layout_alignParentStart="true"
@@ -64,14 +64,14 @@
         android:layout_marginLeft="39dp"
         android:layout_marginTop="247dp"
         android:background="#359c5e"
-        android:text="Buy 10 credits \n  \n $15"
+        android:text="Buy 100 credits \n  \n $15"
         android:textColor="#ffffff"
 
         tools:ignore="DuplicateIds" />
 
 
     <Button
-        android:id="@+id/buy_credit20"
+        android:id="@+id/buy_credit200"
         android:layout_width="142dp"
         android:layout_height="117dp"
         android:layout_alignParentStart="true"
@@ -82,10 +82,10 @@
         android:layout_marginTop="246dp"
         android:textColor="#ffffff"
         android:background="#359c5e"
-        android:text="Buy 20 credits \n  \n $30" />
+        android:text="Buy 200 credits \n  \n $30" />
 
     <Button
-        android:id="@+id/buy_credit50"
+        android:id="@+id/buy_credit500"
         android:layout_width="136dp"
         android:layout_height="110dp"
         android:layout_alignParentStart="true"
@@ -95,11 +95,11 @@
         android:layout_marginLeft="38dp"
         android:layout_marginTop="439dp"
         android:background="#359c5e"
-        android:text="Buy 50 credits \n  \n $75"
+        android:text="Buy 500 credits \n  \n $75"
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/buy_credit100"
+        android:id="@+id/buy_credit1000"
         android:layout_width="143dp"
         android:layout_height="111dp"
         android:layout_alignParentStart="true"
@@ -109,7 +109,7 @@
         android:layout_marginLeft="229dp"
         android:layout_marginTop="438dp"
         android:background="#359c5e"
-        android:text="Buy 100 credits \n  \n $150"
+        android:text="Buy 1000 credits \n  \n $150"
         android:textColor="#ffffff"
         tools:ignore="DuplicateIds" />
 
@@ -121,7 +121,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="199dp"
-        android:background="#000000" />
+        android:background="#000000"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp" />
 
 
 </RelativeLayout>
